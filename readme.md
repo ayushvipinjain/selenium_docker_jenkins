@@ -73,3 +73,49 @@ To Stop `docker-compose down`
 
 Visit  `http://localhost:4466//wd/hub` for Hub
 
+###### <------------------------- END - Covered in Branch Level1------------------------------------------->
+
+* Dockerfile is running the tests and docker-compose is creating the grid Infrastructure
+* Running the tests can be integrated in docker-compose file
+* Introducing automation-service that will use the image created using the Dockerfile and Run it.
+
+
+Issues Faced -  
+
+automation_service :
+
+        image: ayushvipinjain/selenium_docker_jenkins
+        
+        links:
+        
+          - chromenode
+
+          - firefoxnode
+          
+
+firefoxnode :
+
+        links:
+        
+            - seleniumhub:hub
+ 
+ chromenode :
+ 
+        links:
+        
+            - seleniumhub:hub
+
+
+automation_service ---dependsOn--> Nodes ---dependsOn--> Hub
+
+
+* First the hub is created
+* Chrome and Firefox node gets created
+* Immediately after browser node gets created automation_service is executed and send the automation execution request to hub.
+* By this time Although the Node and Hub is created but the Node is not registed with Hub. It takes few secs to connect and hence the the hub receives the request it fails the tests.
+
+##### Problem Statement -> Need to ensure that before the request from automation_service goes to hub, hub should be ready and connected to the nodes.
+
+###### <------------------------- END - Covered in Branch Level2------------------------------------------->
+
+
