@@ -58,6 +58,10 @@ In the above example it is `/Users/in-jayush/Vapasi`
 
 :point_right: If the selenium grid is on local use machine ip as the HUB_HOST
 
+On Mac to find ip use below command
+
+`ifconfig | grep "inet " | grep -v 127.0.0.1`
+
 # Create Grid Infrastructure using docker compose
 
  Refer docker-compose.yml
