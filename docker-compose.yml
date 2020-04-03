@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services: 
     seleniumhub:
         image: selenium/hub
@@ -9,10 +9,10 @@ services:
         ports: 
             - "5901:5900"
         links:
-            - seleniumhub:hub
+            - seleniumhub
         environment:
-            - HUB_PORT_4444_TCP_ADDR=seleniumhub
-            - HUB_PORT_4444_TCP_PORT=4444
+            - HUB_HOST=seleniumhub
+            - HUB_PORT=4444
             - NODE_MAX_INSTANCES=5
             - NODE_MAX_SESSION=5
     firefoxnode :
@@ -20,10 +20,10 @@ services:
         ports: 
             - "5902:5900"
         links:
-            - seleniumhub:hub
+            - seleniumhub
         environment: 
-            - HUB_PORT_4444_TCP_ADDR=seleniumhub
-            - HUB_PORT_4444_TCP_PORT=4444
+            - HUB_HOST=seleniumhub
+            - HUB_PORT=4444
             - NODE_MAX_INSTANCES=5
             - NODE_MAX_SESSION=5
     automation_service :
@@ -32,7 +32,7 @@ services:
           - chromenode
           - firefoxnode
         environment:
-          - HUB_HOST = seleniumhub
+          - HUB_HOST=seleniumhub
           - TestNGFile=crossbrowser.xml
         volumes:
         - ./container_output:/tmp/automation/test-output
