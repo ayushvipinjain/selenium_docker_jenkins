@@ -62,6 +62,8 @@ On Mac to find ip use below command
 
 `ifconfig | grep "inet " | grep -v 127.0.0.1`
 
+Your IP address will be displayed next to the “inet” entry.
+
 # Create Grid Infrastructure using docker compose
 
  Refer docker-compose.yml
