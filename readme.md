@@ -54,7 +54,7 @@ In the above example it is `/Users/in-jayush/Vapasi`
 
 #### Command to Execute test via Dockerfile
 
-``docker run -v /Users/in-jayush/Vapas:/tmp/automation/test-output -e HUB_HOST="http://192.168.0.104:4446/wd/hub" -e TestNGFile="testing.xml" -it  ayushvipinjain/selenium_docker_jenkins``   
+``docker run -v /Users/in-jayush/Vapasi:/tmp/automation/test-output -e HUB_HOST="http://192.168.0.104:4446/wd/hub" -e TestNGFile="testing.xml" -it  ayushvipinjain/selenium_docker_jenkins``   
 
 :point_right: If the selenium grid is on local use machine ip as the HUB_HOST
 
