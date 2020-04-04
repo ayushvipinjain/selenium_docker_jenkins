@@ -3,6 +3,8 @@
 
 #### Running Tests Locally
 
+    exectype=local in config.properties
+    
     Command Line
     `mvn clean test -DdefaultSuiteXMLFile=crossbrowser.xml`
     `mvn clean test -DdefaultSuiteXMLFile=testing.xml`
@@ -12,7 +14,9 @@
     Set Test Parameters 
     browser = chrome or firefox
     
-#### Running Test on Grid
+#### Running Test on Grid on Local
+     exectype=grid in config.properties
+     
     `Set Env Variable HUB_HOST= {url for Hub}
      example : HUB_HOST=http://127.0.0.1:4446/wd/hub`
     
