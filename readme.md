@@ -73,22 +73,21 @@ Your IP address will be displayed next to the “inet” entry.
 
 Run Selenium Hub -  
 
-Registed Hub - 
+    * Registed Hub - 
 
-`docker run -p 4446:4444 --name seleniumhub -d selenium/hub` 
+     `docker run -p 4446:4444 --name seleniumhub -d selenium/hub` 
 
-Register Chrome Node -
+    * Register Chrome Node -
 
-`docker run --name chomebrowser -p 5901:5900 --link seleniumhub:hub -P -d selenium/node-chrome-debug`
+    `docker run --name chomebrowser -p 5901:5900 --link seleniumhub:hub -P -d selenium/node-chrome-debug`
 
-Register Firefox Node -
+    * Register Firefox Node -
 
-`docker run --name firefoxbrowser -p 5902:5900 --link seleniumhub:hub -P -d selenium/node-firefox-debug`
+    `docker run --name firefoxbrowser -p 5902:5900 --link seleniumhub:hub -P -d selenium/node-firefox-debug`
 
- 
- Multiple Browser Instances Example
+    * Multiple Browser Instances Example
 
-`docker run --name chomebrowser -p 5903:5900 --link seleniumhub:hub -P -e NODE_MAX_INSTANCES=5 -e NODE_MAX_SESSION=5 -d selenium/node-chrome-debug`
+    `docker run --name chomebrowser -p 5903:5900 --link seleniumhub:hub -P -e NODE_MAX_INSTANCES=5 -e NODE_MAX_SESSION=5 -d selenium/node-chrome-debug`
 
 * Automated - Refer docker-compose.yml
 
