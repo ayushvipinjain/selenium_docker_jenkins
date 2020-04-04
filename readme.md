@@ -48,7 +48,7 @@ Note - when you run the above command the suite present in testing.xml should be
     `docker images`
     
 ####  Mounting test outputs to local machine to view reports 
-`docker run --entrypoint=/bin/sh -v /Users/in-jayush/Vapasi:/tmp/automation/test-output -it ayushvipinjain/selenium_docker_jenkins`
+``docker run --entrypoint=/bin/sh -v /Users/in-jayush/Vapasi:/tmp/automation/test-output -it ayushvipinjain/selenium_docker_jenkins``
 
 Run below command for testing to see the reports are coming on local directory
 example -
