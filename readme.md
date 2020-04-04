@@ -71,7 +71,6 @@ Your IP address will be displayed next to the “inet” entry.
 # Create Grid Infrastructure using docker compose
 * Manually 
 
-Run Selenium Hub -  
 
     * Registed Hub - 
 
