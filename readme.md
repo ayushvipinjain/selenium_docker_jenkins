@@ -128,3 +128,9 @@ Prerequisite - Install curl for hit the hub api and jq for response parsing on c
 
 
 ###### <------------------------- END - Covered in Branch Level3------------------------------------------->
+
+
+#### Branches
+* ###### _[Level1] - Execute tests via Dockerfile and Setup Grid Infrastructure using docker-compose
+* ###### _[Level2] - Integration between Dockerfile and docker-compose.yml and challenges related to Empty pool of VM for setup Capabilities
+* ###### _[Level3] - HealthCheck - Shell script to ensure that hub is ready and execute the tests
