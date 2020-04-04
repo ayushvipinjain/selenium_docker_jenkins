@@ -69,8 +69,28 @@ On Mac to find ip use below command
 Your IP address will be displayed next to the “inet” entry.
 
 # Create Grid Infrastructure using docker compose
+* Manually 
 
- Refer docker-compose.yml
+Run Selenium Hub -  
+
+Registed Hub - 
+
+`docker run -p 4446:4444 --name seleniumhub -d selenium/hub` 
+
+Register Chrome Node -
+
+`docker run --name chomebrowser -p 5901:5900 --link seleniumhub:hub -P -d selenium/node-chrome-debug`
+
+Register Firefox Node -
+
+`docker run --name firefoxbrowser -p 5902:5900 --link seleniumhub:hub -P -d selenium/node-firefox-debug`
+
+ 
+ Multiple Browser Instances Example
+
+`docker run --name chomebrowser -p 5903:5900 --link seleniumhub:hub -P -e NODE_MAX_INSTANCES=5 -e NODE_MAX_SESSION=5 -d selenium/node-chrome-debug`
+
+* Automated - Refer docker-compose.yml
 
 To Run `docker-compose up`
 To Stop `docker-compose down`
@@ -116,7 +136,7 @@ automation_service ---dependsOn--> Nodes ---dependsOn--> Hub
 * First the hub is created
 * Chrome and Firefox node gets created
 * Immediately after browser node gets created automation_service is executed and send the automation execution request to hub.
-* By this time Although the Node and Hub is created but the Node is not registed with Hub. It takes few secs to connect and hence the the hub receives the request it fails the tests.
+* By this time Although the Node and Hub is created but the Node is not registered with Hub. It takes few secs to connect and hence the the hub receives the request it fails the tests.
 Error : Empty pool of VM for setup Capabilities
 ##### Problem Statement -> Need to ensure that before the request from automation_service goes to hub, hub should be ready and connected to the nodes.
 
@@ -138,3 +158,10 @@ Prerequisite - Install curl for hit the hub api and jq for response parsing on c
 * ###### _[Level1] - Execute tests via Dockerfile and Setup Grid Infrastructure using docker-compose
 * ###### _[Level2] - Integration between Dockerfile and docker-compose.yml and challenges related to Empty pool of VM for setup Capabilities
 * ###### _[Level3] - HealthCheck - Shell script to ensure that hub is ready and execute the tests
+
+
+
+
+#### Resources
+:point_right: Docker Docs - `https://docs.docker.com/`
+:point_right: docker-compose for selenium `https://github.com/SeleniumHQ/docker-selenium`
