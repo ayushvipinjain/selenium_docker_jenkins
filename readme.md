@@ -165,4 +165,7 @@ Prerequisite - Install curl for hit the hub api and jq for response parsing on c
 
 #### Resources
 :point_right: Docker Docs - `https://docs.docker.com/`
+
 :point_right: docker-compose for selenium `https://github.com/SeleniumHQ/docker-selenium`
+
+:point_right: https://www.vinsguru.com/selenium-grid-setup-using-docker/
