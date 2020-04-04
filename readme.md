@@ -113,9 +113,18 @@ automation_service ---dependsOn--> Nodes ---dependsOn--> Hub
 * Chrome and Firefox node gets created
 * Immediately after browser node gets created automation_service is executed and send the automation execution request to hub.
 * By this time Although the Node and Hub is created but the Node is not registed with Hub. It takes few secs to connect and hence the the hub receives the request it fails the tests.
-
+Error : Empty pool of VM for setup Capabilities
 ##### Problem Statement -> Need to ensure that before the request from automation_service goes to hub, hub should be ready and connected to the nodes.
 
 ###### <------------------------- END - Covered in Branch Level2------------------------------------------->
 
+* Solution - The hub api gives the status when hub is ready and connected to any nodes or not
+ 
+ `http://$HUB_HOST:4444/wd/hub/status`
+* Parse the response and read the ready attribute
+Prerequisite - Install curl for hit the hub api and jq for response parsing on container
 
+* HealthCheck - Shell script to ensure that hub is ready and execute the tests
+
+
+###### <------------------------- END - Covered in Branch Level3------------------------------------------->
