@@ -95,7 +95,7 @@ To Stop `docker-compose down`
 
 Visit  `http://localhost:4466//wd/hub` for Hub
 
-###### <------------------------- END - Covered in Branch Level1------------------------------------------->
+###### <--------------------------------------- END - Covered in Branch Level1---------------------------------------------------------------->
 
 * Dockerfile is running the tests and docker-compose is creating the grid Infrastructure
 * Running the tests can be integrated in docker-compose file
@@ -138,7 +138,7 @@ automation_service ---dependsOn--> Nodes ---dependsOn--> Hub
 Error : Empty pool of VM for setup Capabilities
 ##### Problem Statement -> Need to ensure that before the request from automation_service goes to hub, hub should be ready and connected to the nodes.
 
-###### <------------------------- END - Covered in Branch Level2------------------------------------------->
+###### <------------------------------------------ END - Covered in Branch Level2------------------------------------------------------------>
 
 * Solution - The hub api gives the status when hub is ready and connected to any nodes or not
  
@@ -149,7 +149,7 @@ Prerequisite - Install curl for hit the hub api and jq for response parsing on c
 * HealthCheck - Shell script to ensure that hub is ready and execute the tests
 
 
-###### <------------------------- END - Covered in Branch Level3------------------------------------------->
+###### <-------------------------------------------- END - Covered in Branch Level3--------------------------------------------------------->
 
 
 #### Branches
