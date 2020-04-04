@@ -48,13 +48,16 @@ Note - when you run the above command the suite present in testing.xml should be
     `docker images`
     
 ####  Mounting test outputs to local machine to view reports 
-docker run --entrypoint=/bin/sh -v /Users/in-jayush/Vapasi:/tmp/automation/test-output -it ayushvipinjain/selenium_docker_jenkins
+`docker run --entrypoint=/bin/sh -v /Users/in-jayush/Vapasi:/tmp/automation/test-output -it ayushvipinjain/selenium_docker_jenkins`
 
 Run below command for testing to see the reports are coming on local directory
-example - `java -cp selenium_docker_jenkins:selenium_docker_jenkins-tests.jar:libs/* org.testng.TestNG testing.xml`
+example -
+ 
+ `java -cp selenium_docker_jenkins:selenium_docker_jenkins-tests.jar:libs/* org.testng.TestNG testing.xml`
 
 The files in test-output folder in container should be present on local at the folder used for volume mapping.
-In the above example it is `/Users/in-jayush/Vapasi`
+In the above example it is 
+`/Users/in-jayush/Vapasi`
 
 #### Command to Execute test via Dockerfile
 
