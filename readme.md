@@ -169,3 +169,50 @@ Prerequisite - Install curl for hit the hub api and jq for response parsing on c
 :point_right: docker-compose for selenium `https://github.com/SeleniumHQ/docker-selenium`
 
 :point_right: https://www.vinsguru.com/selenium-grid-setup-using-docker/
+
+
+## Jenkins
+
+#### Set up Jenkins on Local 
+Pull images from docker 
+
+`docker pull jenkins/jenkins:lts `
+
+`docker pull maven:3-alpine `
+
+ 
+#### Run jenkins 
+
+docker run -p 9090:8080 -p 50000:50000 -v "$PWD:/var/jenkins_home" jenkins/jenkins:lts 
+Volume Mapping is required so that every time you start a new container with the same volume mapping it remembers the jobs created previous 
+
+On local machine you can see Jenkins running at http://localhost:9090
+Other port is for the Jenkins slave if created.
+
+You can create slave as your local machine if running master on container on the  same machine. As both of them will be running on the same network.
+
+## Jenkins File
+Steps to Run the Tests on CI
+1) Create Package 
+2) Create Images for ayushvipinjain/selenium_docker_jenkins
+3) Once the Image is Create Push the Image on the Docker Hub 
+
+:point_right: Above three steps are automated using Jenkinsfile
+
+Note - Running tests will be a separate project where this image will be pulled and tests are executed
+
+For Running tests Please refer
+ 
+ `https://github.com/ayushvipinjain/selenium_docker_jenkins_runner`
+
+Note - For Pushing the Images on Docker, the credentials for the docker will be maintained in Jenkins
+Jenkins -> Credentials ->System ->Global Credentails and give a name to Credentials
+
+In Jenkinfile dockerhub keyword for pushing images in docker registry is nothing but is pointing to the docker hub credentials stored in jenkins.
+
+
+
+
+
+
+
